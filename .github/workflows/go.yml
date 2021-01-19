@@ -15,7 +15,4 @@ jobs:
     - name: Test
       run: |
            docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog
-            mailhog \
-               -api-bind-addr 127.0.0.1:8025 \
-               -ui-bind-addr 127.0.0.1:8025 \
-               -smtp-bind-addr 127.0.0.1:1025 
+           
