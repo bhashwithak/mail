@@ -17,9 +17,15 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.15
-
+       
+        
     - name: Build
       run: go build -v ./...
 
     - name: Test
-      run: go test -v ./...
+      run: |
+            go test -v ./...
+            mailhog \
+               -api-bind-addr 127.0.0.1:8025 \
+               -ui-bind-addr 127.0.0.1:8025 \
+               -smtp-bind-addr 127.0.0.1:1025 
